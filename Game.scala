@@ -1,12 +1,15 @@
-import scala.io.StdIn.readLine
-import java.util.Arrays
+//It should be run  on hackerrank editor to get output
 import scala.io.StdIn.readInt
-object Game {
+import scala.io.StdIn.readLine
 
-  def main(args: Array[String]): Unit = {
+object Solution {
+    def main(args: Array[String]) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution
+*/
     var t = readInt()
     val a = Array.ofDim[Int](301)
     val g = Array.ofDim[Int](301)
+     //Doing xor on whether consecutive pins will go together or not
     for (i <- 1 to 300) {
       for (left <- 0 to i - 1) {
         g(a(left) ^ a(i - left - 1)) = i
@@ -40,5 +43,5 @@ object Game {
       else
         println("WIN")
     }
-  }
+    }
 }
