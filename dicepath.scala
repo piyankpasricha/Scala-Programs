@@ -1,11 +1,16 @@
-import scala.io.StdIn.readInt
+//Run on hackerrank editor to see output
 import scala.collection.mutable
-object dicepath {
-  val data = mutable.Map[(Int, Int, Dice), Int]()
-
+object Solution {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution
+        
+*/val data = mutable.Map[(Int, Int, Dice), Int]()
   def main(args: Array[String]): Unit = {
+
     val t = scala.io.StdIn.readInt
-    println((0 until t).map(_ => solve( scala.io.StdIn.readInt,scala.io.StdIn.readInt)).mkString("\n"))
+    
+    for(i<-0 until t){ 
+    var num1=scala.io.StdIn.readLine.split(" ")
+    println(solve( num1(0).toInt,num1(1).toInt))}
   }
 
   def solve(m: Int, n: Int): Int = {
@@ -15,6 +20,7 @@ object dicepath {
     ) + acc
 
     inner(m - 1, n - 1, Dice(1, 2, 3), 0)
+    
   }
 
   case class Dice(top: Int, front: Int, left: Int) {
@@ -30,6 +36,5 @@ object dicepath {
 
     def back: Int = pairwiseSum - front
   }
-
 
 }
